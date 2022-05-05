@@ -111,7 +111,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos ={Sudo_Id,5273819032,5059929874}  
+local ListSudos ={Sudo_Id,5059929874,5273819032}  
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -130,10 +130,10 @@ Managers = Redis:sismember(Saidi.."Saidi:Managers:Group"..ChatId,UserId)
 Addictive = Redis:sismember(Saidi.."Saidi:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(Saidi.."Saidi:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 5273819032 then
-Status = 'المطور فيرس'
-elseif UserId == 5059929874 then  
+if UserId == 5059929874 then
 Status = 'المطور حسام'
+elseif UserId == 5273819032 then  
+Status = 'المطور فيرس'
 elseif UserId == Sudo_Id then  
 Status = 'المطور الاساسي'
 elseif UserId == Saidi then
@@ -715,9 +715,9 @@ Managers = Redis:sismember(Saidi.."Saidi:Managers:Group"..ChatId,UserId)
 Addictive = Redis:sismember(Saidi.."Saidi:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(Saidi.."Saidi:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 5273819032 then
+if UserId == 5059929874 then
 Status = true
-elseif UserId == 5059929874 then  
+elseif UserId == 5273819032 then  
 Status = true
 elseif UserId == Sudo_Id then  
 Status = true
@@ -754,9 +754,9 @@ Managers = Redis:sismember(Saidi.."Saidi:Managers:Group"..ChatId,UserId)
 Addictive = Redis:sismember(Saidi.."Saidi:Addictive:Group"..ChatId,UserId)
 Distinguished = Redis:sismember(Saidi.."Saidi:Distinguished:Group"..ChatId,UserId)
 StatusMember = LuaTele.getChatMember(ChatId,UserId).status.luatele
-if UserId == 5273819032 then
+if UserId == 5059929874 then
 Status = true
-elseif UserId == 5059929874 then    
+elseif UserId == 5273819032 then    
 Status = true
 elseif UserId == Sudo_Id then    
 Status = true
@@ -890,11 +890,11 @@ return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id}),LuaTele.setChatMemberSt
 elseif Statusrestricted(msg.chat_id,msg.sender.user_id).SilentGroup == true then
 return LuaTele.deleteMessages(msg.chat_id,{[1]= msg.id})
 end
-if tonumber(msg.sender.user_id) == 5273819032 then
-msg.Name_Controller = 'المطور فيرس'
-msg.The_Controller = 1
-elseif tonumber(msg.sender.user_id) == 5059929874 then
+if tonumber(msg.sender.user_id) == 5059929874 then
 msg.Name_Controller = 'المطور حسام'
+msg.The_Controller = 1
+elseif tonumber(msg.sender.user_id) == 5273819032 then
+msg.Name_Controller = 'المطور فيرس'
 msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender.user_id) == true then  
 msg.The_Controller = 1
@@ -2366,7 +2366,7 @@ for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
+NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "فيرس")
 Groups = (Redis:scard(Saidi..'Saidi:ChekBotAdd') or 0)
 Users = (Redis:scard(Saidi..'Saidi:Num:User:Pv') or 0)
 if photo.total_count > 0 then
@@ -4430,10 +4430,10 @@ end
 if Controller(msg_chat_id,UserId_Info.id) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'المطور حسام' then
+if Controller(msg_chat_id,UserId_Info.id) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'المطور فيرس' then
+if Controller(msg_chat_id,UserId_Info.id) == 'المطور حسام' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
 if Redis:sismember(Saidi.."Saidi:BanAll:Groups",UserId_Info.id) then
@@ -4496,10 +4496,10 @@ end
 if Controller(msg_chat_id,UserId_Info.id) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'المطور حسام' then
+if Controller(msg_chat_id,UserId_Info.id) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId_Info.id) == 'المطور فيرس' then
+if Controller(msg_chat_id,UserId_Info.id) == 'المطور حسام' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId_Info.id).." 』*","md",true)  
 end
 if Redis:sismember(Saidi.."Saidi:ktmAll:Groups",UserId_Info.id) then
@@ -4881,10 +4881,10 @@ end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور حسام' then
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور فيرس' then
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور حسام' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
 if Redis:sismember(Saidi.."Saidi:BanAll:Groups",Message_Reply.sender.user_id) then
@@ -4941,10 +4941,10 @@ end
 if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور حسام' then
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
-if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور فيرس' then
+if Controller(msg_chat_id,Message_Reply.sender.user_id) == 'المطور حسام' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,Message_Reply.sender.user_id).." 』*","md",true)  
 end
 if Redis:sismember(Saidi.."Saidi:ktmAll:Groups",Message_Reply.sender.user_id) then
@@ -5236,10 +5236,10 @@ end
 if Controller(msg_chat_id,UserId) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId) == 'المطور حسام' then
+if Controller(msg_chat_id,UserId) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId) == 'المطور حسام' then
+if Controller(msg_chat_id,UserId) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع حظر عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
 if Redis:sismember(Saidi.."Saidi:BanAll:Groups",UserId) then
@@ -5290,10 +5290,10 @@ end
 if Controller(msg_chat_id,UserId) == 'المطور الثانوي' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم  عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId) == 'المطور حسام' then
+if Controller(msg_chat_id,UserId) == 'المطور فيرس' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n* ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
-if Controller(msg_chat_id,UserId) == 'المطور فيرس' then
+if Controller(msg_chat_id,UserId) == 'المطور حسام' then
 return LuaTele.sendText(msg_chat_id,msg_id,"\n*  ⦁ عذرا لا تستطيع كتم عام『 "..Controller(msg_chat_id,UserId).." 』*","md",true)  
 end
 if Redis:sismember(Saidi.."Saidi:ktmAll:Groups",UserId) then
@@ -9178,7 +9178,7 @@ return LuaTele.sendText(msg_chat_id,msg_id,'\n* ⦁ مطور البوت : {*['..
 end
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' or text == 'source' then
-photo = "http://t.me/FLASH_MESR"
+photo = "https://telegra.ph/file/20236a7be62655a357471.jpg"
 local T =[[
 ╔━━━━━━━━𓄼•🤍•𓄹━━━━━━━╗ 
 ┇⦑ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ 𝚂𝙾𝚄𝚁𝙲𝙴 𝚅𝙸𝚁𝚄𝚂⦒ 
@@ -9186,12 +9186,15 @@ local T =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-
-{
-{text = '𓄼• 𝒉𝒐𝒔𝒔𝒂𝒎 •𓄹', url = "https://t.me/H_OS_S_AM"},{text = '𓄼• 𝒅𝒆𝒔𝒉𝒂 •𓄹', url = "https://t.me/J3_X3"}
 },
 {
-{text = '𓄼• 𝒄𝒐𝒅𝒆𝒓 𝒗𝒊𝒓𝒖𝒔 •𓄹', url = "https://t.me/FLASH_MASR"}
+{text = '𓄼•  𝒄𝒐𝒅𝒆𝒓 𝒗𝒊𝒓𝒖𝒔  •𓄹', url = "https://t.me/FLASH_MASR"},
+},
+{
+{text = '𓄼• 𝒅𝒆𝒔𝒉𝒂 •𓄹', url = "https://t.me/J3_X3"}
+},
+{
+{text = '𓄼• 𝒉𝒐𝒔𝒔𝒂𝒎 •𓄹', url = "https://t.me/H_OS_S_AM"}
 },
 {
 {text = '𓄼• 𝚂𝙾𝚄𝚁𝙲𝙴 𝚅𝙸𝚁𝚄𝚂 •𓄹', url = "https://t.me/FLASH_MESR"}
@@ -9218,7 +9221,7 @@ data = {
 {text = '𓄼•❸•𓄹', data = msg.sender.user_id..'/help3'}, {text = '𓄼•❹•𓄹', data = msg.sender.user_id..'/help4'}, 
 },
 {
-{text = '𓄼•❺•𓄹', data = msg.sender.user_id..'/listallAddorrem'}, {text = '𓄼•❻•𓄹', data = msg.sender.user_id..'/NoNextSeting'}, 
+{text = '{ تفعيل / تعطيل }', data = msg.sender.user_id..'/listallAddorrem'}, {text = '{ فتح / قفل }', data = msg.sender.user_id..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼• 𝚂𝙾𝚄𝚁𝙲𝙴 𝚅𝙸𝚁𝚄𝚂 •𓄹', url = 't.me/FLASH_MESR'}, 
@@ -9255,7 +9258,7 @@ data = {
 },
 }
 }
-return LuaTele.sendText(msg_chat_id,msg_id,'𓄼• اليك قسم الالعاب من سورس صعيدي •𓄹',"md",false, false, false, false, reply_markup)
+return LuaTele.sendText(msg_chat_id,msg_id,'𓄼• اليك قسم الالعاب من سورس فيرس •𓄹',"md",false, false, false, false, reply_markup)
 end
 if text == 'هاي' or text == 'هيي' then
 if not Redis:get(Saidi.."Saidi:Sasa:Jeka"..msg_chat_id) then
@@ -9957,9 +9960,10 @@ for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
+local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "فيرس")
 local BotName = {
 'اسمي '..NamesBot..' يا قلبي 😍💜',
+'اسمي '..NamesBot..' ي ابنلمره 🙂',
 'اسمي '..NamesBot..' يا روحي 🙈❤️',
 'اسمي '..NamesBot..' يا عمري 🥰🤍',
 'اسمي '..NamesBot..' يا قمر 🐼💚',
@@ -9986,14 +9990,14 @@ msgg = msg.id/2097152/0.5
 https.request("https://api.telegram.org/bot"..Token.."/sendphoto?chat_id=" .. msg_chat_id .. "&photo="..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id.."&photo=".. URL.escape(NamesBots).."&reply_to_message_id="..msgg.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
-if text == (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي") then
+if text == (Redis:get(Saidi.."Saidi:Name:Bot") or "فيرس") then
 local photo = LuaTele.getUserProfilePhotos(Saidi)
 local UserInfo = LuaTele.getUser(Saidi)
 for Name_User in string.gmatch(UserInfo.first_name, "[^%s]+" ) do
 UserInfo.first_name = Name_User
 break
 end 
-local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")
+local NamesBot = (Redis:get(Saidi.."Saidi:Name:Bot") or "فيرس")
 local BotName = {
 'نعم يروحي 🌝💙',
 'نعم يا قلب '..NamesBot..'',
@@ -10127,7 +10131,7 @@ local texting = {"اخر افلام شاهدتها",
 "اخر اغنية سمعتها ?", 
 "تكلم عن نفسك", 
 "ليه انت مش سالك", 
-"ما هيا عيوب سورس صعيدي؟ ", 
+"ما هيا عيوب سورس فيرس؟ ", 
 "اخر كتاب قرآته", 
 "روايتك المفضله ?", 
 "اخر اكله اكلتها", 
@@ -10143,13 +10147,13 @@ local texting = {"اخر افلام شاهدتها",
 " ما السيء في هذه الحياة ؟ ", 
 "أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
 "سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس صعيدي؟؟ ", 
+" هل يعجبك سورس فيرس؟؟ ", 
 " اكثر ممثل تحبه ؟ ", 
 "قد تخيلت شي في بالك وصار ؟ ", 
 "شيء عندك اهم من الناس ؟ ", 
 "تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
 "وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس صعيدي؟ ", 
+"اي رايك في سورس فيرس؟ ", 
 "كم مره حبيت؟ ", 
 " اكثر المتابعين عندك باي برنامج؟", 
 " آخر مره ضربت عشره كانت متى ؟", 
@@ -11045,7 +11049,7 @@ if text == '/start' then
 Redis:sadd(Saidi..'Saidi:Num:User:Pv',msg.sender.user_id)  
 if not msg.ControllerBot then
 if not Redis:get(Saidi.."Saidi:Start:Bot") then
-local CmdStart = '*\n ⦁ أهلآ بك في بوت '..(Redis:get(Saidi.."Saidi:Name:Bot") or "صعيدي")..
+local CmdStart = '*\n ⦁ أهلآ بك في بوت '..(Redis:get(Saidi.."Saidi:Name:Bot") or "فيرس")..
 '\n ⦁ اختصاص البوت حماية المجموعات'..
 '\n ⦁ لتفعيل البوت عليك اتباع مايلي ...'..
 '\n ⦁ اضف البوت الى مجموعتك'..
@@ -12097,7 +12101,7 @@ local TextHelp = [[*
 𓄼• تنزيل مطور •𓄹
 𓄼• رفع مطور ثانوي •𓄹
 𓄼• تنزيل مطور ثانوي •𓄹
-⩹┉┉┉┉⊶❲𖥳 𝐒𝐀𝐈𝐃?? 𖥳❳⊷┉┉┉┉⩺
+⩹┉┉┉┉⊶❲𖥳 𝚅𝙸𝚁𝚄𝚂 𖥳❳⊷┉┉┉┉⩺
 𓄼• تفعيل الردود العامه •𓄹
 𓄼• تعطيل الردود العامه •𓄹
 𓄼• اضف رد متعدد •𓄹
@@ -12137,7 +12141,7 @@ data = {
 {text = '𓄼•❸•𓄹', data = IdUser..'/help3'}, {text = '𓄼•❹•𓄹', data = IdUser..'/help4'}, 
 },
 {
-{text = '𓄼•❺•𓄹', data = IdUser..'/listallAddorrem'}, {text = '𓄼•❻•𓄹', data = IdUser..'/NoNextSeting'}, 
+{text = '{ تفعيل / تعطيل }', data = IdUser..'/listallAddorrem'}, {text = '{ فتح / قفل }', data = IdUser..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼• 𝚂𝙾𝚄𝚁𝙲𝙴 𝚅𝙸𝚁𝚄𝚂 •𓄹', url = 't.me/FLASH_MESR'}, 
@@ -12206,7 +12210,7 @@ data = {
 {text = '𓄼•❸•𓄹', data = IdUser..'/help3'}, {text = '𓄼•❹•𓄹', data = IdUser..'/help4'}, 
 },
 {
-{text = '𓄼•❺•𓄹', data = IdUser..'/listallAddorrem'}, {text = '𓄼•❻•𓄹', data = IdUser..'/NoNextSeting'}, 
+{text = '{ تفعيل / تعطيل }', data = IdUser..'/listallAddorrem'}, {text = '{ فتح / قفل }', data = IdUser..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼• 𝚂𝙾𝚄𝚁𝙲𝙴 𝚅𝙸𝚁𝚄𝚂 •𓄹', url = 't.me/FLASH_MESR'}, 
@@ -12307,7 +12311,7 @@ data = {
 {text = '𓄼•❸•𓄹', data = IdUser..'/help3'}, {text = '𓄼•❹•𓄹', data = IdUser..'/help4'}, 
 },
 {
-{text = '𓄼•❺•𓄹', data = IdUser..'/listallAddorrem'}, {text = '𓄼•❻•𓄹', data = IdUser..'/NoNextSeting'}, 
+{text = '{ تفعيل / تعطيل }', data = IdUser..'/listallAddorrem'}, {text = '{ فتح / قفل }', data = IdUser..'/NoNextSeting'}, 
 },
 {
 {text = '𓄼• 𝚂𝙾𝚄𝚁𝙲𝙴 𝚅𝙸𝚁𝚄𝚂 •𓄹', url = 't.me/FLASH_MESR'}, 
