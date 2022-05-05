@@ -9188,7 +9188,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 
 {
-{text = '𓄼• 𝒉𝒐𝒔𝒔𝒂𝒎 •𓄹', url = "https://t.me/H_OS_S_AM"},{text = '𓄼• 𝒅𝒆𝒔𝒉𝒂 •𓄹', url = "https://t.me/Dev_Jeka"}
+{text = '𓄼• 𝒉𝒐𝒔𝒔𝒂𝒎 •𓄹', url = "https://t.me/H_OS_S_AM"},{text = '𓄼• 𝒅𝒆𝒔𝒉𝒂 •𓄹', url = "https://t.me/J3_X3"}
 },
 {
 {text = '𓄼• 𝒄𝒐𝒅𝒆𝒓 𝒗𝒊𝒓𝒖𝒔 •𓄹', url = "https://t.me/FLASH_MASR"}
